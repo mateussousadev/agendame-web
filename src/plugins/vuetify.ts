@@ -1,28 +1,31 @@
-/**
- * plugins/vuetify.ts
- *
- * Framework documentation: https://vuetifyjs.com
- */
+import { createVuetify } from 'vuetify';
+import '@mdi/font/css/materialdesignicons.css';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import { BlueTheme} from '@/theme/LightTheme';
 
-import { createVuetify } from 'vuetify'
-import '@mdi/font/css/materialdesignicons.css'
-import '../styles/layers.css'
-import 'vuetify/styles'
 
 export default createVuetify({
-  theme: {
-    defaultTheme: 'system',
-    utilities: false,
-  },
-  display: {
-    mobileBreakpoint: 'md',
-    thresholds: {
-      xs: 0,
-      sm: 600,
-      md: 840,
-      lg: 1145,
-      xl: 1545,
-      xxl: 2138,
+    components,
+    directives,
+
+    theme: {
+        defaultTheme: 'BlueTheme',
+        themes: {
+            BlueTheme,
+        }
     },
-  },
-})
+    defaults: {
+        VBtn: {},
+        VCard: {
+            rounded: 'md'
+        },
+        VTextField: {
+            rounded: 'lg'
+        },
+        VTooltip: {
+            // set v-tooltip default location to top
+            location: 'top'
+        }
+    }
+});
